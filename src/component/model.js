@@ -8,7 +8,7 @@ const OCCLUSION_LAYER = 1;
 
 export default function Model({ layer = DEFAULT_LAYER }) {
 	const modelRef = useRef();
-	const model = useLoader(GLTFLoader, '/ferrari.glb', (loader) => {
+	const model = useLoader(GLTFLoader, '/scene.gltf', (loader) => {
 		const dracoLoader = new DRACOLoader();
 		dracoLoader.setDecoderPath('/draco-gltf');
 		loader.setDRACOLoader(dracoLoader);
