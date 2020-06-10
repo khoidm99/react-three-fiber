@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Canvas } from 'react-three-fiber';
+import Box from './component/box';
+import Controls from './component/controls';
+import Plane from './component/plane';
+import Model from './component/model';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<div className="App">
+			<Canvas>
+				<Model />
+				<fog attach="fog" args={['white', 10, 25]} />
+				<ambientLight />
+				<spotLight position={[15, 20, 5]} penumbra={1} castShadow />
+				<Box />
+				<Controls />
+				<Plane />
+			</Canvas>
+		</div>
+	);
 }
 
 export default App;
